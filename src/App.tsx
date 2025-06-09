@@ -1,7 +1,9 @@
+import States from "./components/States";
+
 function App() {
   return (
     <>
-      <div>hellpo</div>
+      <States />
     </>
   );
 }
