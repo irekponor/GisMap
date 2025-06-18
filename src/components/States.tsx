@@ -21,7 +21,19 @@ const States = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="© OpenStreetMap"
       />
-      {geoData && <GeoJSON data={geoData} />}
+      {geoData && (
+        <GeoJSON
+          data={geoData}
+          onEachFeature={(feature, layer) => {
+            layer.bindPopup(feature.properties.NAME_1 || "Unknown State");
+          }}
+          style={() => ({
+            color: "#000000",
+            weight: 1.5,
+            fillOpacity: 0.3,
+          })}
+        />
+      )}
     </MapContainer>
   );
 };
